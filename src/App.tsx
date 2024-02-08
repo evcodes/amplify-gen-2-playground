@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+"use client"
+import { generateClient } from "aws-amplify/data";
+import { type Schema } from "../amplify/data/resource";
+import React from "react";
+import "./App.css";
+
+const client = generateClient<Schema>()
 
 function App() {
+
+  const { data: customers } = client.models.Customer.list()
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1> Mi Bodeguita Veracruz</h1>
+      <ul>{customers.map(customer => <li key={customer.id}>{customer.firstName}</li>)}</ul>      
     </div>
   );
 }
