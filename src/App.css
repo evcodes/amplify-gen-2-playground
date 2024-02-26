@@ -24,6 +24,11 @@
   color: white;
 }
 
+#error-page{
+  display: grid;
+  justify-items: center;  
+}
+
 .App-link {
   color: #61dafb;
 }

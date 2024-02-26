@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "selfstorageapp",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authselfstorageapp65269bc4",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
