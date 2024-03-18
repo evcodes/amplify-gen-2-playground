@@ -13,6 +13,7 @@ export const onCreateCustomer = /* GraphQL */ `subscription OnCreateCustomer($fi
     id
     firstName
     lastName
+    email
     description
     createdAt
     updatedAt
@@ -28,6 +29,7 @@ export const onUpdateCustomer = /* GraphQL */ `subscription OnUpdateCustomer($fi
     id
     firstName
     lastName
+    email
     description
     createdAt
     updatedAt
@@ -43,6 +45,7 @@ export const onDeleteCustomer = /* GraphQL */ `subscription OnDeleteCustomer($fi
     id
     firstName
     lastName
+    email
     description
     createdAt
     updatedAt

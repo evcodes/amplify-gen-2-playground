@@ -1,17 +1,22 @@
-import * as React from 'react';
-import CustomerTable from './customerTable';
-import { Button } from '@mui/material';
-
+import * as React from "react";
+import CustomerTable from "./customerTable";
+import { Button } from "@mui/material";
+import { Outlet, Link } from "react-router-dom";
+import "./customer.css"
 export default class Customer extends React.Component {
   public render() {
     return (
-      <div>
+      <div className = "customer-container">
         <h1>Customers Home</h1>
-        <Button variant="contained" size='small'>Create new Customer</Button>
-
-        <CustomerTable/>
-        
-        
+        <Link to="new">
+          <Button variant="contained" size="small">
+            Create new Customer
+          </Button>
+        </Link>
+        <div className = "customer-table-container">
+          <CustomerTable />
+        </div>
+        <Outlet />
       </div>
     );
   }

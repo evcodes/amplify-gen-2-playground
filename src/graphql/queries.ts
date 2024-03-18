@@ -13,6 +13,7 @@ export const getCustomer = /* GraphQL */ `query GetCustomer($id: ID!) {
     id
     firstName
     lastName
+    email
     description
     createdAt
     updatedAt
@@ -33,6 +34,7 @@ export const listCustomers = /* GraphQL */ `query ListCustomers(
       id
       firstName
       lastName
+      email
       description
       createdAt
       updatedAt

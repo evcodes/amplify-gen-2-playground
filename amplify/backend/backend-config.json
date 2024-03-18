@@ -1,30 +1,13 @@
 {
   "api": {
     "selfstorageapp": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "UserPoolId"
-          ],
-          "category": "auth",
-          "resourceName": "selfstorageapp65269bc4"
-        }
-      ],
+      "dependsOn": [],
       "output": {
         "authConfig": {
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-              "userPoolConfig": {
-                "userPoolId": "authselfstorageapp65269bc4"
-              }
-            }
-          ],
+          "additionalAuthenticationProviders": [],
           "defaultAuthentication": {
             "apiKeyConfig": {
-              "apiKeyExpirationDate": "2024-05-08T07:25:53.058Z",
-              "apiKeyExpirationDays": 90,
-              "description": "self storage app api key"
+              "apiKeyExpirationDays": 7
             },
             "authenticationType": "API_KEY"
           }

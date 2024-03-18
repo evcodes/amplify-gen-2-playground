@@ -5,15 +5,7 @@
     "serviceName": "AppSync",
     "defaultAuthType": {
       "mode": "API_KEY",
-      "expirationTime": 90,
-      "apiKeyExpirationDate": "2024-05-08T07:25:53.058Z",
-      "keyDescription": "self storage app api key"
-    },
-    "additionalAuthTypes": [
-      {
-        "mode": "AMAZON_COGNITO_USER_POOLS",
-        "cognitoUserPoolId": "authselfstorageapp65269bc4"
-      }
-    ]
+      "expirationTime": 7
+    }
   }
 }

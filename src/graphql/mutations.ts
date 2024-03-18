@@ -16,6 +16,7 @@ export const createCustomer = /* GraphQL */ `mutation CreateCustomer(
     id
     firstName
     lastName
+    email
     description
     createdAt
     updatedAt
@@ -34,6 +35,7 @@ export const updateCustomer = /* GraphQL */ `mutation UpdateCustomer(
     id
     firstName
     lastName
+    email
     description
     createdAt
     updatedAt
@@ -52,6 +54,7 @@ export const deleteCustomer = /* GraphQL */ `mutation DeleteCustomer(
     id
     firstName
     lastName
+    email
     description
     createdAt
     updatedAt

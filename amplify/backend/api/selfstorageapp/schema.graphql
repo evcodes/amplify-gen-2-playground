@@ -6,6 +6,6 @@ type Customer @model {
   id: ID!
   firstName: String!
   lastName: String!
+  email: String!
   description: String
 }
-z
