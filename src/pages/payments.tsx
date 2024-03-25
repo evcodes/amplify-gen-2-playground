@@ -6,6 +6,7 @@ export default class Payments extends React.Component {
     return (
       <div>
         <h1>Payments</h1>
+        <p>Not implemented yet</p>
       </div>
     );
   }

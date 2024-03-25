@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 import { createCustomer } from "../../graphql/mutations";
 import { generateClient } from "aws-amplify/api";
 import { useState } from "react";
+import {Amplify} from "aws-amplify";
+import config from "../../amplifyconfiguration.json";
 
+
+Amplify.configure(config);
 const client = generateClient();
 
 export default function CreateCustomer() {

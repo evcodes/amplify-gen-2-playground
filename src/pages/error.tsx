@@ -1,6 +1,6 @@
 import { useRouteError } from "react-router-dom";
 import '../App.css'
-export default function ErrorPage() {
+export default function Error() {
   const error: any = useRouteError();
   console.error(error);
 

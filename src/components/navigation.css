@@ -1,0 +1,12 @@
+.navigation-container{
+    padding: 10px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background-color: white;
+}
+.navigation-links-container {
+   display: flex;
+   justify-content: space-around;
+   gap: 10px;
+}

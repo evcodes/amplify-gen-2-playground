@@ -6,6 +6,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import {generateClient} from "aws-amplify/api";
+import * as queries from "../../graphql/queries";
+import {Link} from "react-router-dom";
+import {Button, ButtonGroup} from "@mui/material";
+import {Amplify} from "aws-amplify";
+import config from "../../amplifyconfiguration.json";
 
 function createData(
   name: string,
@@ -17,13 +23,9 @@ function createData(
   return { name, calories, fat, carbs, protein };
 }
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
+Amplify.configure(config)
+export const client = generateClient();
+const rows = await client.graphql({ query: queries.listCustomers });
 
 export default function CustomerTable() {
   return (
@@ -31,26 +33,34 @@ export default function CustomerTable() {
       <Table sx={{ minWidth: 650}} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
+            <TableCell>Customer id </TableCell>
             <TableCell align="right">First Name</TableCell>
             <TableCell align="right">Last Name</TableCell>
             <TableCell align="right">Email</TableCell>
-            <TableCell align="right">Unit number</TableCell>
+            <TableCell align="right">Created at </TableCell>
+            <TableCell align="right">Modify </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rows.data.listCustomers.items.map((customer) => (
             <TableRow
-              key={row.name}
+              key={customer.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.name}
+                <Link to = {`/customers/details/${customer.id}`}>{customer.id}</Link>
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{customer.firstName}</TableCell>
+              <TableCell align="right">{customer.lastName}</TableCell>
+              <TableCell align="right">{customer.email}</TableCell>
+              <TableCell align="right">{customer.createdAt}</TableCell>
+              <TableCell align ="right">
+                <ButtonGroup variant="contained" aria-label="Basic button group">
+                  <Button color= "error">Delete</Button>
+                  <Button>Edit</Button>
+                  <Button color="warning">Details</Button>
+                </ButtonGroup>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
